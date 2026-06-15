@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Tema customizado com as cores do Tailwind v3 */
+@theme {
+  /* Cores - Gray Scale */
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+
+  /* Cores funcionais */
+  --color-red-500: #ef4444;
+  --color-red-600: #dc2626;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+  --color-green-600: #16a34a;
+  --color-blue-500: #3b82f6;
+  --color-blue-600: #2563eb;
+
+  /* Espaçamento (opcional, Tailwind já tem valores padrão) */
+  --spacing: 0.25rem;
+
+  /* Breakpoints (mantendo os padrões do Tailwind) */
+  --breakpoint-sm: 40rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 80rem;
+  --breakpoint-2xl: 96rem;
+}
+
+/* Dark mode manual via classe .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Estilos base */
+@layer base {
+  body {
+    background-color: var(--color-gray-50);
+    transition-property: color, background-color, border-color;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark body {
+    background-color: var(--color-gray-900);
+  }
+}
+
+/* Utilitários personalizados (se necessário) */
+@utility container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@utility line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+@utility line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
